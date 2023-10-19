@@ -3,6 +3,7 @@ package com.carsapi.controller;
 import com.carsapi.exception.ExceptionResponse;
 import com.carsapi.request.MarcaCreateRequest;
 import com.carsapi.service.MarcaService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +17,13 @@ public class MarcaController {
     @Autowired
     private MarcaService marcaService;
 
+    @ApiOperation(value = "Listar")
     @GetMapping
     public ResponseEntity findAll() {
         return ResponseEntity.ok(marcaService.findAll());
     }
 
+    @ApiOperation(value = "Selecionar")
     @GetMapping("/{id}")
     public ResponseEntity select(@PathVariable Integer id) {
         try {
@@ -30,6 +33,7 @@ public class MarcaController {
         }
     }
 
+    @ApiOperation(value = "Cadastrar")
     @PostMapping
     public ResponseEntity create(@Valid @RequestBody MarcaCreateRequest request) {
         try {
@@ -39,6 +43,7 @@ public class MarcaController {
         }
     }
 
+    @ApiOperation(value = "Atualizar")
     @PutMapping
     public ResponseEntity update(@Valid @RequestBody MarcaCreateRequest request) {
         try {
@@ -48,6 +53,7 @@ public class MarcaController {
         }
     }
 
+    @ApiOperation(value = "Deletar")
     @DeleteMapping
     public ResponseEntity delete(@Valid @RequestBody MarcaCreateRequest request) {
         try {

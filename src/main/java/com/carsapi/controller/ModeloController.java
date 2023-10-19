@@ -3,6 +3,7 @@ package com.carsapi.controller;
 import com.carsapi.exception.ExceptionResponse;
 import com.carsapi.request.ModeloCreateRequest;
 import com.carsapi.service.ModeloService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +17,13 @@ public class ModeloController {
     @Autowired
     private ModeloService modeloService;
 
+    @ApiOperation(value = "Listar")
     @GetMapping
     public ResponseEntity findAll() {
         return ResponseEntity.ok(modeloService.findAll());
     }
 
+    @ApiOperation(value = "Selecionar")
     @GetMapping("/{id}")
     public ResponseEntity select(@PathVariable Integer id) {
         try {
@@ -30,6 +33,7 @@ public class ModeloController {
         }
     }
 
+    @ApiOperation(value = "Cadastrar")
     @PostMapping
     public ResponseEntity create(@Valid @RequestBody ModeloCreateRequest request) {
         try {
@@ -39,6 +43,7 @@ public class ModeloController {
         }
     }
 
+    @ApiOperation(value = "Atualizar")
     @PutMapping
     public ResponseEntity update(@Valid @RequestBody ModeloCreateRequest request) {
         try {
@@ -48,6 +53,7 @@ public class ModeloController {
         }
     }
 
+    @ApiOperation(value = "Deletar")
     @DeleteMapping
     public ResponseEntity delete(@Valid @RequestBody ModeloCreateRequest request) {
         try {
