@@ -19,7 +19,6 @@ public class Carro {
 
     @ManyToOne
     @JoinColumn(name = "modelo_id", referencedColumnName = "id")
-    @Column(name = "modelo_id")
     private Modelo modelo;
 
     private Integer ano;

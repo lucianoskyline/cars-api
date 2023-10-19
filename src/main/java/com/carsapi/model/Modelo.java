@@ -15,7 +15,6 @@ public class Modelo {
 
     @ManyToOne
     @JoinColumn(name = "marca_id", referencedColumnName = "id")
-    @Column(name = "marca_id")
     private Marca marca;
 
     private String nome;
