@@ -73,7 +73,6 @@ public class ModeloService {
     public ModeloCreateResponse convertToResponse(Modelo modelo) {
         ModelMapper modelMapper = new ModelMapper();
         ModeloCreateResponse response= modelMapper.map(modelo, ModeloCreateResponse.class);
-       // response.setMarca(marcaService.select(m));
         return response;
     }
 
